@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.buuz135.oo_ee_a_e_a.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "oo_ee_a_e_a.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
