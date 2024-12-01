@@ -1,0 +1,18 @@
+{
+  "oo_ee_a_e_a_slow": {
+    "category": "neutral",
+    "sounds": [
+      "oo_ee_a_e_a:oo_ee_a_e_a_slow"
+    ],
+    "subtitle": "oo_ee_a_e_a.subtitle.oo_ee_a_e_a",
+    "stream": false
+  },
+  "oo_ee_a_e_a_fast": {
+    "category": "neutral",
+    "sounds": [
+      "oo_ee_a_e_a:oo_ee_a_e_a_fast"
+    ],
+    "subtitle": "oo_ee_a_e_a.subtitle.oo_ee_a_e_a",
+    "stream": false
+  }
+}

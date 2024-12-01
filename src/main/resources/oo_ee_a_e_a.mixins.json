@@ -7,6 +7,7 @@
   "mixins": [
   ],
   "client": [
+    "CatRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
