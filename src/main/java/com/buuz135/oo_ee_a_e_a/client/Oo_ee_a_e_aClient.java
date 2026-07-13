@@ -4,10 +4,10 @@ import com.buuz135.oo_ee_a_e_a.Config;
 import com.buuz135.oo_ee_a_e_a.Oo_ee_a_e_a;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.CatRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.context.ContextKey;
-import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.animal.feline.Cat;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -21,8 +21,8 @@ public class Oo_ee_a_e_aClient {
 
     public static long lastSpin = -1;
     public static boolean fast = true;
-    public static final ContextKey<Boolean> SHOULD_SPIN = new ContextKey<>(ResourceLocation.fromNamespaceAndPath(Oo_ee_a_e_a.MODID, "should_spin"));
-    public static final ContextKey<Float> ROTATION_AMOUNT = new ContextKey<>(ResourceLocation.fromNamespaceAndPath(Oo_ee_a_e_a.MODID, "rotation_amount"));
+    public static final ContextKey<Boolean> SHOULD_SPIN = new ContextKey<>(Identifier.fromNamespaceAndPath(Oo_ee_a_e_a.MODID, "should_spin"));
+    public static final ContextKey<Float> ROTATION_AMOUNT = new ContextKey<>(Identifier.fromNamespaceAndPath(Oo_ee_a_e_a.MODID, "rotation_amount"));
 
     public Oo_ee_a_e_aClient(IEventBus modBus) {
         modBus.addListener(this::registerRenderStateModifier);
@@ -42,9 +42,9 @@ public class Oo_ee_a_e_aClient {
         if (lastSpin == -1) {
             lastSpin = level.getGameTime();
         }
-        if (level.getGameTime() > lastSpin + Config.COOLDOWN_BETWEEN_SPINS.getAsInt() * 20L && level.random.nextFloat() < 0.05) {
+        if (level.getGameTime() > lastSpin + Config.COOLDOWN_BETWEEN_SPINS.getAsInt() * 20L && level.getRandom().nextFloat() < 0.05) {
             lastSpin = level.getGameTime();
-            fast = level.random.nextBoolean();
+            fast = level.getRandom().nextBoolean();
             var entities = level.getEntitiesOfClass(Cat.class, new AABB(Minecraft.getInstance().player.blockPosition()).inflate(32));
             entities.forEach(cat -> level.playLocalSound(cat, fast ? Oo_ee_a_e_a.FAST.get() : Oo_ee_a_e_a.SLOW.get(), SoundSource.NEUTRAL, 1,1));
         }
